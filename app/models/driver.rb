@@ -1,4 +1,5 @@
 class Driver < ApplicationRecord
-  validates :name, presence: true
+  has_and_belongs_to_many :crawlers
 
+  validates :name, presence: true
 end
