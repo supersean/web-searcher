@@ -3,4 +3,5 @@ class Crawler < ApplicationRecord
   belongs_to :user
 
   validates :drivers, presence: true
+
 end

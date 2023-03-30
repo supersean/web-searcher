@@ -14,4 +14,20 @@ class CrawlersControllerTest < ActionDispatch::IntegrationTest
 
     assert_select ".crawlers li", count: user.crawlers.count
   end
+
+  test "i can create a crawler" do
+    user = users(:seansly)
+    sign_in user
+    get new_user_crawler_path(user)
+    assert_response :success
+
+    keywords = "ABC"
+    drivers = Driver.all.collect(&:id)
+
+    post user_crawlers_path(user), params: { crawler: { keywords:, drivers: } }
+    assert_redirected_to user_crawlers_path(user)
+
+    assert_not_nil user.crawlers.find_by(keywords:)
+  end
+  
 end
