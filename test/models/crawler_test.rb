@@ -11,4 +11,5 @@ class CrawlerTest < ActiveSupport::TestCase
     crawler.drivers.push Driver.first
     assert crawler.save
   end
+
 end
