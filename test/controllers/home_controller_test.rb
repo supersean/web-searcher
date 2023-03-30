@@ -15,10 +15,12 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to "/users/sign_in"
   end
 
-  test "crawlers link is on user homepage" do
+  test "navbar links (my profile, my crawlers, home) are all there" do
     sign_in users(:seansly)
 
     get '/'
-    assert_select "a[href=?]", user_crawlers_path(users(:seansly).id)
+    assert_select "a[href=?]", user_crawlers_path(users(:seansly))
+    assert_select "a[href=?]", user_path(users(:seansly))
+    assert_select "a[href=?]", root_path
   end
 end

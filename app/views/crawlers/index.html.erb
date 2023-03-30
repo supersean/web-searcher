@@ -1,0 +1,6 @@
+<h1><%= current_user.name %>'s Crawlers</h1>
+<ul class="crawlers">
+  <% current_user.crawlers.each do |crawler| %>
+    <li class="crawler"><%= crawler.keywords %></li>
+  <% end %>
+</ul>
