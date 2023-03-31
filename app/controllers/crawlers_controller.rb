@@ -1,3 +1,4 @@
+
 class CrawlersController < ApplicationController
 
   def index
@@ -25,6 +26,7 @@ class CrawlersController < ApplicationController
 
   def destroy
     Crawler.delete params[:id]
+
     redirect_to user_crawlers_path(current_user)
   end
 

@@ -78,3 +78,4 @@ group :test do
 end
 
 gem "devise"
+gem "logging", "~> 2.3", ">= 2.3.1"
