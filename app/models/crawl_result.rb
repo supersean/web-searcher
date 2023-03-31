@@ -1,0 +1,2 @@
+class CrawlResult < ApplicationRecord
+end

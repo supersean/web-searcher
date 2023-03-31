@@ -59,6 +59,4 @@ class CrawlersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to user_crawlers_path(user)
   end
 
-
-
 end
