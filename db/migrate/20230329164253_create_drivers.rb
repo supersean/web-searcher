@@ -6,4 +6,8 @@ class CreateDrivers < ActiveRecord::Migration[7.0]
       t.timestamps
     end
   end
+
+  def self.down
+    drop_table :drivers
+  end
 end

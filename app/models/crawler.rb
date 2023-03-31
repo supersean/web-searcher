@@ -4,4 +4,6 @@ class Crawler < ApplicationRecord
 
   validates :drivers, presence: true
 
+  has_many :crawl_results
+
 end

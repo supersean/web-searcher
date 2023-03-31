@@ -10,9 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_30_153025) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_31_131113) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "crawl_results", force: :cascade do |t|
+    t.string "html"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "crawler_id", null: false
+    t.index ["crawler_id"], name: "index_crawl_results_on_crawler_id"
+  end
 
   create_table "crawlers", force: :cascade do |t|
     t.string "keywords"
@@ -63,5 +71,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_30_153025) do
     t.index ["slug"], name: "index_users_on_slug", unique: true
   end
 
+  add_foreign_key "crawl_results", "crawlers"
   add_foreign_key "crawlers", "users"
 end
