@@ -1,0 +1,5 @@
+<%= form_with(model: @crawler, url: [current_user, @crawler]) do |form| %>
+  <%= form.text_field :keywords %>
+  <%= form.select :drivers, options_from_collection_for_select(Driver.all, 'id', 'name', @crawler.drivers.map(&:id)), {}, {multiple: true} %>
+  <%= form.submit %>
+<% end %>

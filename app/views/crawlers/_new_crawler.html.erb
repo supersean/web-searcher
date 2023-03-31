@@ -1,5 +1,0 @@
-<%= form_with(model: @new_crawler, url: [current_user, @new_crawler]) do |form| %>
-  <%= form.text_field :keywords %>
-  <%= form.select :drivers, Driver.all.collect {|driver| [driver.name, driver.id]}, {}, {multiple: true} %>
-  <%= form.submit %>
-<% end %>

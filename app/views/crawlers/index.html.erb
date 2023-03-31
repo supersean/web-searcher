@@ -1,7 +1,22 @@
 <h1><%= @display_name %>'s Crawlers</h1>
-<%= render "new_crawler" %>
-<ul class="crawlers">
-  <% current_user.crawlers.each do |crawler| %>
-    <li class="crawler"><%= crawler.keywords %></li>
-  <% end %>
-</ul>
+<%= render "crawler_form" %>
+<table class="crawlers">
+  <thead>
+    <th></th>
+    <th>keywords</th>
+    <th>drivers</th>
+    <th></th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% current_user.crawlers.each do |crawler| %>
+      <tr class="crawler">
+        <td></td>
+        <td><%= crawler.keywords %></td>
+        <td><%= crawler.drivers.map(&:name).join(", ") %></td>
+        <td><%= link_to "Edit", edit_user_crawler_path(current_user, crawler) %></td>
+        <td><%= button_to "Delete", user_crawler_path(current_user, crawler), { method: :delete } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
